@@ -8,7 +8,7 @@ export const clientRouting = true
 // !! WARNING !! Before doing so, read https://vite-plugin-ssr.com/clientRouting
 export const hydrationCanBeAborted = true
 
-import { hydrateRoot } from 'react-dom/client'
+
 import { PageShell } from './PageShell'
 import ReactDOM from 'react-dom/client'
 import type { PageContextClient } from './types'
@@ -18,7 +18,9 @@ let root: ReactDOM.Root
 // This render() hook only supports SSR, see https://vite-plugin-ssr.com/render-modes for how to modify render() to support SPA
 async function render(pageContext: PageContextClient) {
   
-  const { Page,locale, pageProps,urlWithoutLocale } = pageContext
+  const { Page,locale, pageProps } = pageContext
+ 
+  
   //动态激活多语言
   await dynamicActivate(locale)
   if (!Page) throw new Error('Client-side render() hook expects pageContext.Page to be defined')
@@ -46,7 +48,8 @@ async function render(pageContext: PageContextClient) {
 
 
 function onPageTransitionStart(pageContext) {
-  console.log('Page transition start')
+
+  console.log('Page transition start',pageContext.locale)
   // `pageContext.isBackwardNavigation` 也在 `render(pageContext)`
   // 和 `onPageTransitionEnd(pageContext)` 中设置。
   console.log('Is backwards navigation?', pageContext.isBackwardNavigation)

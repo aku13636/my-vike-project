@@ -24,6 +24,7 @@ export type PageContextCustom = {
   urlWithoutLocale:string
   pageProps?: PageProps
   urlPathname: string
+  redirectTo:string
   exports: {
     documentProps?: {
       title?: string

@@ -1,7 +1,7 @@
 export { render }
 // See https://vite-plugin-ssr.com/data-fetching
 export const passToClient = ['pageProps','locale','urlWithoutLocale']
-export { onBeforePrerender }
+
 
 
 import ReactDOMServer from 'react-dom/server'
@@ -13,8 +13,8 @@ import { locales, localeDefault, dynamicActivate } from '#root/utils/locales'
 
 
 async function render(pageContext: PageContextServer) {
-  const { Page,locale, pageProps } = pageContext
-  dynamicActivate
+  const { Page,locale,urlOriginal, pageProps } = pageContext
+  console.log('server里面的重定向到',`/${locale}${urlOriginal}`)
   await dynamicActivate(locale)
   // This render() hook only supports SSR, see https://vite-plugin-ssr.com/render-modes for how to modify render() to support SPA
   if (!Page) throw new Error('My render() hook expects pageContext.Page to be defined')
@@ -51,29 +51,3 @@ async function render(pageContext: PageContextServer) {
   }
 }
 
-// We only need this for pre-rendered apps https://vike.dev/pre-rendering
-function onBeforePrerender(prerenderContext:any) {
-  const pageContexts:any = []
-  prerenderContext.pageContexts.forEach((pageContext:any) => {
-    // Duplicate pageContext for each locale
-    locales.forEach((locale:any) => {
-      // Localize URL
-      let { urlOriginal } = pageContext
-      if (locale !== localeDefault) {
-        urlOriginal = `/${locale}${pageContext.urlOriginal}`
-      }
-      pageContexts.push({
-        ...pageContext,
-        urlOriginal,
-        // Set pageContext.locale
-        locale,
-        
-      })
-    })
-  })
-  return {
-    prerenderContext: {
-      pageContexts
-    }
-  }
-}
