@@ -19,6 +19,9 @@ type PageProps = Record<string, unknown>
 
 export type PageContextCustom = {
   Page: Page
+  path:string
+  locale:string
+  urlWithoutLocale:string
   pageProps?: PageProps
   urlPathname: string
   exports: {

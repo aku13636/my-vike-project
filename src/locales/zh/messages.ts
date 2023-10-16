@@ -1,0 +1,1 @@
+/*eslint-disable*/export const messages=JSON.parse("{\"DqC8yQ\":\"你好\",\"5Fi+5S\":\"这里是Saint的 vite-SSR 模板项目\",\"F08R6z\":\"加载失败\"}");

@@ -1,34 +1,40 @@
-import React from 'react'
-import logo from './logo.svg'
+import React, { useState,useEffect } from 'react'
+import logo from './avatar.jpg'
 import { PageContextProvider } from './usePageContext'
 import type { PageContext } from './types'
+import { I18nProvider } from '@lingui/react'
+import { i18n } from '@lingui/core'
 import './PageShell.css'
 import { Link } from './Link'
 
 export { PageShell }
 
 function PageShell({ children, pageContext }: { children: React.ReactNode; pageContext: PageContext }) {
+  
+  
   return (
     <React.StrictMode>
       <PageContextProvider pageContext={pageContext}>
-        <Layout>
-          <Sidebar>
-            <Logo />
-            <Link className="navitem" href="/">
-              Home
-            </Link>
-            <Link className="navitem" href="/about">
-              About
-            </Link>
-          </Sidebar>
-          <Content>{children}</Content>
-        </Layout>
+        <I18nProvider i18n={i18n}>
+          <Layout locale='zhCN' >
+            <Sidebar>
+              <Logo />
+              <Link className='navitem' href="/" >
+                Home
+              </Link>
+              <Link className='navitem' href="/about">
+                About
+              </Link>
+            </Sidebar>
+            <Content>{children}</Content>
+          </Layout>
+        </I18nProvider>
       </PageContextProvider>
     </React.StrictMode>
   )
 }
 
-function Layout({ children }: { children: React.ReactNode }) {
+function Layout({locale, children }: {locale:any, children: React.ReactNode }) {
   return (
     <div
       style={{
@@ -36,6 +42,7 @@ function Layout({ children }: { children: React.ReactNode }) {
         maxWidth: 900,
         margin: 'auto'
       }}
+      
     >
       {children}
     </div>

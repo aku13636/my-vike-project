@@ -1,0 +1,1 @@
+/*eslint-disable*/export const messages=JSON.parse("{\"DqC8yQ\":\"Hello\",\"5Fi+5S\":\"Here is Saint's vite-SSR template project\",\"F08R6z\":\"loading error\"}");
