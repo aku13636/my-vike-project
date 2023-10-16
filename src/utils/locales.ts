@@ -30,6 +30,7 @@ function extractLocale(url:any) {
 
 export function setLocale(lang:string,path?:string){
   path = path ?? ''
-  document.location.assign(`//${location.host}/${lang}`)
+  const _lang = lang===localeDefault?'':lang
+  document.location.assign(`//${location.host}/${_lang}`)
 }
 

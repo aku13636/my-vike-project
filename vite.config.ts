@@ -9,7 +9,8 @@ import tsconfigPaths from 'vite-tsconfig-paths'
 const config: UserConfig = {
   resolve:{
     alias:{
-      '#root':path.resolve(__dirname,'src')
+      '#root':path.resolve(__dirname,'src'),
+      'renderer':path.resolve(__dirname,'renderer') 
     }
   },
   plugins: [
