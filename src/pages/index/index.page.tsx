@@ -11,9 +11,8 @@ function Page() {
     <>
       <h1>{t`greeting1`}！</h1>
       <h1>{t`greeting2`}！</h1>
-      <button onClick={()=>{
-        console.log('locale',locale)
-        debugger
+      <button 
+        onClick={()=>{
         setLocale(locale==='en'?'zh':'en')
     }}>切换</button>
     </>

@@ -13,6 +13,7 @@ import { PageShell } from './PageShell'
 import ReactDOM from 'react-dom/client'
 import type { PageContextClient } from './types'
 import {dynamicActivate} from '#root/utils/locales'
+//import './index.css'
 
 let root: ReactDOM.Root
 // This render() hook only supports SSR, see https://vite-plugin-ssr.com/render-modes for how to modify render() to support SPA
