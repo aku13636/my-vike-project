@@ -6,7 +6,7 @@ import { I18nProvider } from '@lingui/react'
 import { i18n } from '@lingui/core'
 import './PageShell.css'
 import { Link } from './Link'
-
+import '#root/assets/iconfont/iconfont.css'
 export { PageShell }
 
 function PageShell({ children, pageContext }: { children: React.ReactNode; pageContext: PageContext }) {

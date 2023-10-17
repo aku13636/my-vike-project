@@ -1,0 +1,16 @@
+{
+  "id": "4290120",
+  "name": "my-vike-project",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "12515456",
+      "name": "语言",
+      "font_class": "icon-yuyan",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    }
+  ]
+}

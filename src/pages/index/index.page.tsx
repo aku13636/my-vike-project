@@ -12,9 +12,11 @@ function Page() {
       <h1>{t`greeting1`}！</h1>
       <h1>{t`greeting2`}！</h1>
       <button 
+        title='切换语言'
         onClick={()=>{
         setLocale(locale==='en'?'zh':'en')
-    }}>切换</button>
+    }}><i className='iconfont icon-icon-yuyan'></i></button>
+    
     </>
   )
 }
